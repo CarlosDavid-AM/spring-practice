@@ -6,32 +6,32 @@ import java.util.List;
 import java.util.Objects;
 
 @Entity
+@Table(name = "users")
 public class Users {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(nullable = false, length = 100)
     private String name;
 
+    @Column(nullable = false, length = 50)
     private String country;
 
-    private String age;
+    @Column(nullable = false)
+    private Integer age;
 
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "user_id")
+    @OneToMany(mappedBy = "users", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Skills> skills;
 
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "user_id")
+    @OneToMany(mappedBy = "users", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Languages> languages;
 
-    @OneToMany(cascade = CascadeType.ALL)
-    @JoinColumn(name = "user_id")
+    @OneToMany(mappedBy = "users", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Experiences> experiences;
 
     public Long getId() {
-
         return id;
     }
 
@@ -55,11 +55,11 @@ public class Users {
         this.country = country;
     }
 
-    public String getAge() {
+    public Integer getAge() {
         return age;
     }
 
-    public void setAge(String age) {
+    public void setAge(Integer age) {
         this.age = age;
     }
 
@@ -89,7 +89,6 @@ public class Users {
 
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Users users = (Users) o;
         return Objects.equals(id, users.id) && Objects.equals(name, users.name) && Objects.equals(country, users.country) && Objects.equals(age, users.age) && Objects.equals(skills, users.skills) && Objects.equals(languages, users.languages) && Objects.equals(experiences, users.experiences);
@@ -106,7 +105,7 @@ public class Users {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", country='" + country + '\'' +
-                ", age='" + age + '\'' +
+                ", age=" + age +
                 ", skills=" + skills +
                 ", languages=" + languages +
                 ", experiences=" + experiences +

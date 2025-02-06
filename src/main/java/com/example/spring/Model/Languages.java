@@ -1,22 +1,26 @@
 package com.example.spring.Model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.util.Objects;
 
 @Entity
+@Table(name = "languages")
 public class Languages {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(nullable = false, length = 50)
     private String name;
 
+    @Column(nullable = false, length = 20)
     private String level;
+
+    @ManyToOne
+    @JoinColumn(name = "user_id", nullable = false)
+    private Users users;
 
     public Long getId() {
         return id;
@@ -42,17 +46,24 @@ public class Languages {
         this.level = level;
     }
 
+    public Users getUsers() {
+        return users;
+    }
+
+    public void setUsers(Users users) {
+        this.users = users;
+    }
+
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Languages languages = (Languages) o;
-        return Objects.equals(id, languages.id) && Objects.equals(name, languages.name) && Objects.equals(level, languages.level);
+        return Objects.equals(id, languages.id) && Objects.equals(name, languages.name) && Objects.equals(level, languages.level) && Objects.equals(users, languages.users);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, level);
+        return Objects.hash(id, name, level, users);
     }
 
     @Override
@@ -61,6 +72,7 @@ public class Languages {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", level='" + level + '\'' +
+                ", users=" + users +
                 '}';
     }
 }

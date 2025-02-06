@@ -1,22 +1,25 @@
 package com.example.spring.Model;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 
 import java.util.Objects;
 
 @Entity
+@Table(name = "skills")
 public class Skills {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
+    @Column(nullable = false, length = 100)
     private String name;
 
     private String years;
+
+    @ManyToOne
+    @JoinColumn(name = "user_id", nullable = false)
+    private Users users;
 
     public Long getId() {
         return id;
@@ -42,17 +45,24 @@ public class Skills {
         this.years = years;
     }
 
+    public Users getUsers() {
+        return users;
+    }
+
+    public void setUsers(Users users) {
+        this.users = users;
+    }
+
     @Override
     public boolean equals(Object o) {
-        if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Skills skills = (Skills) o;
-        return Objects.equals(id, skills.id) && Objects.equals(name, skills.name) && Objects.equals(years, skills.years);
+        return Objects.equals(id, skills.id) && Objects.equals(name, skills.name) && Objects.equals(years, skills.years) && Objects.equals(users, skills.users);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, years);
+        return Objects.hash(id, name, years, users);
     }
 
     @Override
@@ -61,6 +71,7 @@ public class Skills {
                 "id=" + id +
                 ", name='" + name + '\'' +
                 ", years='" + years + '\'' +
+                ", users=" + users +
                 '}';
     }
 }

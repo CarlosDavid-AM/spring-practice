@@ -10,7 +10,7 @@ public class UsersDTO {
 
     private String country;
 
-    private String age;
+    private Integer age;
 
     private List<SkillsDTO> skillsDTO;
 
@@ -42,11 +42,11 @@ public class UsersDTO {
         this.country = country;
     }
 
-    public String getAge() {
+    public Integer getAge() {
         return age;
     }
 
-    public void setAge(String age) {
+    public void setAge(Integer age) {
         this.age = age;
     }
 

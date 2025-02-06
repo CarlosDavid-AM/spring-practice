@@ -28,3 +28,33 @@ CREATE TABLE experiences (
     position VARCHAR(100),
     duration VARCHAR(50)
 );
+
+
+-- JSON para el POST
+
+{
+    "name": "Pablo España",
+    "country": "Ecuador",
+    "age": 26,
+    "skills": [
+      {
+        "name": "Python",
+        "years": 5
+      }
+    ],
+    "experiences": [
+      {
+        "title": "Software Developer",
+        "location": "Ecuador",
+        "start_date": "2021",
+        "end_date": "Present",
+        "organization": "Real Company"
+      }
+    ],
+    "languages": [
+      {
+        "name": "English",
+        "level": "Intermediate"
+      }
+    ]
+  }
