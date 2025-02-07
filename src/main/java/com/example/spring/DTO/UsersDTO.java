@@ -12,11 +12,11 @@ public class UsersDTO {
 
     private Integer age;
 
-    private List<SkillsDTO> skillsDTO;
+    private List<SkillsDTO> skills;
 
-    private List<LanguagesDTO> languagesDTO;
+    private List<LanguagesDTO> languages;
 
-    private List<ExperiencesDTO> experiencesDTO;
+    private List<ExperiencesDTO> experiences;
 
     public Long getId() {
         return id;
@@ -50,27 +50,27 @@ public class UsersDTO {
         this.age = age;
     }
 
-    public List<SkillsDTO> getSkillsDTO() {
-        return skillsDTO;
+    public List<SkillsDTO> getSkills() {
+        return skills;
     }
 
-    public void setSkillsDTO(List<SkillsDTO> skillsDTO) {
-        this.skillsDTO = skillsDTO;
+    public void setSkills(List<SkillsDTO> skills) {
+        this.skills = skills;
     }
 
-    public List<LanguagesDTO> getLanguagesDTO() {
-        return languagesDTO;
+    public List<LanguagesDTO> getLanguages() {
+        return languages;
     }
 
-    public void setLanguagesDTO(List<LanguagesDTO> languagesDTO) {
-        this.languagesDTO = languagesDTO;
+    public void setLanguages(List<LanguagesDTO> languages) {
+        this.languages = languages;
     }
 
-    public List<ExperiencesDTO> getExperiencesDTO() {
-        return experiencesDTO;
+    public List<ExperiencesDTO> getExperiences() {
+        return experiences;
     }
 
-    public void setExperiencesDTO(List<ExperiencesDTO> experiencesDTO) {
-        this.experiencesDTO = experiencesDTO;
+    public void setExperiences(List<ExperiencesDTO> experiences) {
+        this.experiences = experiences;
     }
 }

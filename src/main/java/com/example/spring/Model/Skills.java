@@ -12,9 +12,10 @@ public class Skills {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(nullable = false, length = 100)
+    @Column(name = "name")
     private String name;
 
+    @Column(name = "years")
     private String years;
 
     @ManyToOne

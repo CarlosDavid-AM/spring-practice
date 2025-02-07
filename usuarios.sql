@@ -32,7 +32,8 @@ CREATE TABLE experiences (
 
 -- JSON para el POST
 
-{
+
+  {
     "name": "Pablo España",
     "country": "Ecuador",
     "age": 26,
@@ -44,11 +45,9 @@ CREATE TABLE experiences (
     ],
     "experiences": [
       {
-        "title": "Software Developer",
-        "location": "Ecuador",
-        "start_date": "2021",
-        "end_date": "Present",
-        "organization": "Real Company"
+        "company": "Real Company",
+        "position": "Ecuador",
+        "duration": "1 año"
       }
     ],
     "languages": [
